@@ -1,0 +1,44 @@
+version: 2
+
+sources:
+  - name: gz_raw_data
+    description: "Raw data layer containing unprocessed sales, product and shipment data from source systems."
+    database: savvy-courage-482012-i2
+    schema: gz_raw_data
+
+    tables:
+      - name: raw_gz_sales
+        description: "Raw sales transactions data coming directly from Google Ads exports."
+        columns:
+          - name: date_date
+            description: "Date when the sale occurred."
+
+          - name: orders_id
+            description: "Unique identifier of the order."
+
+          - name: products_id
+            description: "Identifier of the purchased product."
+
+          - name: turnover
+            description: "Total revenue generated from the order."
+
+      - name: raw_gz_product
+        description: "Raw product master data including pricing information."
+        columns:
+          - name: products_id
+            description: "Unique identifier for each product."
+
+          - name: purchase_PRICE
+            description: "Original purchase price of the product (raw field, incorrectly named)."
+
+      - name: raw_gz_ship
+        description: "Raw shipment and logistics data related to orders."
+        columns:
+          - name: orders_id
+            description: "Order identifier linked to shipment."
+
+          - name: shipping_fee
+            description: "Cost of shipping charged for the order."
+
+          - name: shipping_date
+            description: "Date when the order was shipped."
