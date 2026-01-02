@@ -1,0 +1,10 @@
+version: 2
+
+sources:
+  - name: gz_raw_data
+    database: savvy-courage-482012-i2
+    schema: gz_raw_data
+    tables:
+      - name: raw_gz_sales
+      - name: raw_gz_product
+      - name: raw_gz_ship
