@@ -2,43 +2,109 @@ version: 2
 
 sources:
   - name: gz_raw_data
-    description: "Raw data layer containing unprocessed sales, product and shipment data from source systems."
+    description: "Raw data layer containing unprocessed sales, product, shipment and paid ads data."
     database: savvy-courage-482012-i2
     schema: gz_raw_data
 
     tables:
       - name: raw_gz_sales
-        description: "Raw sales transactions data coming directly from Google Ads exports."
+        description: "Raw sales transactions data."
         columns:
           - name: date_date
             description: "Date when the sale occurred."
-
           - name: orders_id
             description: "Unique identifier of the order."
-
           - name: products_id
             description: "Identifier of the purchased product."
-
           - name: turnover
             description: "Total revenue generated from the order."
 
       - name: raw_gz_product
-        description: "Raw product master data including pricing information."
+        description: "Raw product master data."
         columns:
           - name: products_id
             description: "Unique identifier for each product."
-
           - name: purchase_PRICE
-            description: "Original purchase price of the product (raw field, incorrectly named)."
+            description: "Purchase price of the product."
 
       - name: raw_gz_ship
-        description: "Raw shipment and logistics data related to orders."
+        description: "Raw shipment data related to orders."
         columns:
           - name: orders_id
             description: "Order identifier linked to shipment."
-
           - name: shipping_fee
-            description: "Cost of shipping charged for the order."
-
+            description: "Shipping cost of the order."
           - name: shipping_date
             description: "Date when the order was shipped."
+
+      - name: raw_gz_adwords
+        description: "Google Ads campaign performance data."
+        columns:
+          - name: date_date
+            description: "Date of the advertising activity."
+          - name: paid_source
+            description: "Paid marketing source."
+          - name: campaign_key
+            description: "Unique campaign identifier."
+          - name: camPGN_name
+            description: "Campaign name."
+          - name: ads_cost
+            description: "Advertising cost."
+          - name: impression
+            description: "Number of ad impressions."
+          - name: click
+            description: "Number of ad clicks."
+
+      - name: raw_gz_bing
+        description: "Microsoft Bing Ads campaign performance data."
+        columns:
+          - name: date_date
+            description: "Date of the advertising activity."
+          - name: paid_source
+            description: "Paid marketing source."
+          - name: campaign_key
+            description: "Unique campaign identifier."
+          - name: camPGN_name
+            description: "Campaign name."
+          - name: ads_cost
+            description: "Advertising cost."
+          - name: impression
+            description: "Number of ad impressions."
+          - name: click
+            description: "Number of ad clicks."
+
+      - name: raw_gz_criteo
+        description: "Criteo retargeting campaign performance data."
+        columns:
+          - name: date_date
+            description: "Date of the advertising activity."
+          - name: paid_source
+            description: "Paid marketing source."
+          - name: campaign_key
+            description: "Unique campaign identifier."
+          - name: camPGN_name
+            description: "Campaign name."
+          - name: ads_cost
+            description: "Advertising cost."
+          - name: impression
+            description: "Number of ad impressions."
+          - name: click
+            description: "Number of ad clicks."
+
+      - name: raw_gz_facebook
+        description: "Facebook Ads campaign performance data."
+        columns:
+          - name: date_date
+            description: "Date of the advertising activity."
+          - name: paid_source
+            description: "Paid marketing source."
+          - name: campaign_key
+            description: "Unique campaign identifier."
+          - name: camPGN_name
+            description: "Campaign name."
+          - name: ads_cost
+            description: "Advertising cost."
+          - name: impression
+            description: "Number of ad impressions."
+          - name: click
+            description: "Number of ad clicks."
